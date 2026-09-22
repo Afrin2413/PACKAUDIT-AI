@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-light antialiased selection:bg-brand-emerald selection:text-black min-h-screen font-sans;
+    background-color: #090b0e;
+    color: #f1f4f9;
+  }
+}
+
+/* Custom modern graphite scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1015;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252e3d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334054;
+}
+
+/* Subtle glow badges */
+.badge-compliant {
+  @apply bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30 font-medium;
+}
+
+.badge-review {
+  @apply bg-brand-amber/10 text-brand-amber border border-brand-amber/30 font-medium;
+}
+
+.badge-violation {
+  @apply bg-brand-crimson/10 text-brand-crimson border border-brand-crimson/30 font-medium;
+}
+
+/* Glass panel subtle border */
+.glass-panel {
+  background: #11151c;
+  border: 1px solid #1e2634;
+  border-radius: 0.75rem;
+}
+
+.glass-panel-interactive {
+  background: #11151c;
+  border: 1px solid #1e2634;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-panel-interactive:hover {
+  border-color: #2e3a4e;
+  background: #141922;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
