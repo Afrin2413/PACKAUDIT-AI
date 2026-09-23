@@ -83,7 +83,24 @@ export const EvidenceViewer: React.FC<EvidenceViewerProps> = ({
       };
     });
 
-  const activeImage = showProcessed && processedImageUrl ? processedImageUrl : imageUrl;
+  const API_BASE_URL =
+  import.meta.env.VITE_API_URL || 'https://packaudit-ai-aty1.onrender.com/api';
+
+const makeImageUrl = (url: string) => {
+  if (!url) return url;
+  if (url.startsWith('http')) return url;
+
+  if (url.startsWith('/api/')) {
+    return `${API_BASE_URL.replace(/\/api$/, '')}${url}`;
+  }
+
+  return `${API_BASE_URL}/${url.replace(/^\/+/, '')}`;
+};
+
+const activeImage =
+  showProcessed && processedImageUrl
+    ? makeImageUrl(processedImageUrl)
+    : makeImageUrl(imageUrl);
 
   return (
     <div className="flex flex-col h-full rounded-xl bg-dark-surface border border-dark-border overflow-hidden">
